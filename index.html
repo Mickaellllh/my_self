@@ -3,9 +3,85 @@
 <head>
   <title>مجلس الامبراطورية</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; }
-    .post { border: 1px solid #ddd; padding: 20px; margin: 10px auto; width: 80%; }
-  </style>
+  :root {
+    --primary: #4361ee;
+    --secondary: #f72585;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #333;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+  }
+  
+  .post {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px;
+    transition: transform 0.3s ease;
+  }
+  
+  .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  }
+  
+  .post h2 {
+    color: var(--secondary);
+    margin-top: 0;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 12px;
+  }
+  
+  .post img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background: #3a56d4;
+  }
+</style>
 </head>
   <script>
   document.querySelectorAll('.post').forEach(post => {
@@ -14,18 +90,62 @@
     });
   });
 </script>
-<body>
-  <h1>شخص اخر بالامبراطورية ، مرحبا  </h1>
-  
-  <div class="post">
-    <h2>احب نفسي </h2>
-    <p>غادر ان لم يعجبك المكان</p>
-    <img src="https://via.placeholder.com/300" alt="رسمة تجريبية">
-  </div>
+  <script>
+  // إضافة تفاعل عند النقر على الزر
+  document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', () => {
+      button.textContent = 'جاري التحميل...';
+      setTimeout(() => {
+        alert('هذه الميزة ستكون جاهزة قريباً! حالياً يمكنك إضافة النموذج في الخطوة التالية');
+        button.textContent = button.dataset.originalText;
+      }, 1000);
+    });
+  });
 
-  <div class="post">
-    <h2>تبا</h2>
-    <p>لا يوجد شيء اقوله غير تبا</p>
+  // حفظ النص الأصلي للأزرار
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.dataset.originalText = btn.textContent;
+  });
+</script>
+  <div style="margin: 50px auto; max-width: 600px; text-align: center;">
+  <h2>انضم لمجتمعنا</h2>
+  <form>
+    <input type="text" placeholder="اسمك" style="padding: 12px; width: 80%; margin: 10px; border-radius: 8px; border: 1px solid #ddd;">
+    <br>
+    <input type="email" placeholder="بريدك الإلكتروني" style="padding: 12px; width: 80%; margin: 10px; border-radius: 8px; border: 1px solid #ddd;">
+    <br>
+    <button type="submit" class="btn" style="margin-top: 15px;">اشترك ليصلك الجديد</button>
+  </form>
+</div>
+  
+<body>
+  <header>
+    <h1>🎨 منتدى المبدعين العرب</h1>
+    <p>مساحة لعرض إبداعاتك ومشاركة شغفك مع العالم</p>
+    <button class="btn">انضم إلينا</button>
+  </header>
+
+  <div class="posts-container">
+    <div class="post">
+      <h2>رسمتي الجديدة: طبيعة ساحرة</h2>
+      <p>شاركوني آرائكم في هذه الرسمة التي استغرقت 20 ساعة عمل ✍️</p>
+      <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5" alt="لوحة فنية">
+      <button class="btn">التعليق (24)</button>
+    </div>
+
+    <div class="post">
+      <h2>ما أفضل رواية قرأتها هذا الشهر؟</h2>
+      <p>شاركنا تجربتك مع آخر كتاب أثر فيك وأعطنا تقييمك 📚</p>
+      <img src="https://images.unsplash.com/photo-1495640388908-05fa85288e61" alt="كتب">
+      <button class="btn">التعليق (31)</button>
+    </div>
+    
+    <div class="post">
+      <h2>تحدي الرسم السريع - الأسبوع 5</h2>
+      <p>ارسم أي شيء يخطر ببالك في 10 دقائق فقط! ⏱️</p>
+      <img src="https://images.unsplash.com/photo-1543857778-c4a1a569e7bd" alt="أدوات رسم">
+      <button class="btn">شارك إبداعك</button>
+    </div>
   </div>
 </body>
 </html>
