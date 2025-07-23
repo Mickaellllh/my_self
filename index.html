@@ -7,6 +7,13 @@
     .post { border: 1px solid #ddd; padding: 20px; margin: 10px auto; width: 80%; }
   </style>
 </head>
+  <script>
+  document.querySelectorAll('.post').forEach(post => {
+    post.addEventListener('click', () => {
+      alert('ستكون هذه نافذة المناقشة قريبًا!');
+    });
+  });
+</script>
 <body>
   <h1>شخص اخر بالامبراطورية ، مرحبا  </h1>
   
@@ -20,12 +27,5 @@
     <h2>تبا</h2>
     <p>لا يوجد شيء اقوله غير تبا</p>
   </div>
-  <script>
-  document.querySelectorAll('.post').forEach(post => {
-    post.addEventListener('click', () => {
-      alert('ستكون هذه نافذة المناقشة قريبًا! ان شاء الله ');
-    });
-  });
-</script>
 </body>
 </html>
